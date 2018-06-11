@@ -1,0 +1,32 @@
+{
+  "name": "@beaker/dat-session-data-ext-msg",
+  "version": "1.0.0",
+  "description": "Methods for implementing DEP-0006: Session Data (Extension Message)",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beakerbrowser/dat-session-data-ext-msg.git"
+  },
+  "keywords": [
+    "dat",
+    "extension",
+    "message",
+    "session"
+  ],
+  "author": "Paul Frazee <pfrazee@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beakerbrowser/dat-session-data-ext-msg/issues"
+  },
+  "homepage": "https://github.com/beakerbrowser/dat-session-data-ext-msg#readme",
+  "devDependencies": {
+    "hyperdrive": "^9.13.0",
+    "random-access-memory": "^3.0.0",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+  }
+}
