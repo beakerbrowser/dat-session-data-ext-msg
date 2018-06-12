@@ -27,6 +27,5 @@
     "random-access-memory": "^3.0.0",
     "tape": "^4.9.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

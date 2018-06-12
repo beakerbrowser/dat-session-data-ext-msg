@@ -72,6 +72,14 @@ class DatSessionDataExtMsg extends EventEmitter {
       watcher.broadcastLocalSessionData()
     }
   }
+
+  // send my session data to the given peer
+  sendLocalSessionData (dat, remoteId) {
+    var {watcher} = this.getWatcher(dat)
+    if (watcher) {
+      watcher.sendLocalSessionData(remoteId)
+    }
+  }
 }
 exports.DatSessionDataExtMsg = DatSessionDataExtMsg
 
@@ -115,6 +123,13 @@ class DatWatcher {
       if (getPeerProtocolStream(peers[i]).remoteSupports('session-data')) {
         getPeerFeedStream(peers[i]).extension('session-data', this.localSessionData)
       }
+    }
+  }
+
+  sendLocalSessionData (remoteId) {
+    var peer = this.getPeer(remoteId)
+    if (getPeerProtocolStream(peer).remoteSupports('session-data')) {
+      getPeerFeedStream(peer).extension('session-data', this.localSessionData)
     }
   }
 

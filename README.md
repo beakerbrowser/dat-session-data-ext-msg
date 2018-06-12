@@ -41,4 +41,5 @@ datSessionDataExtMsg.getSessionDatas(archiveOrHypercore)
 datSessionDataExtMsg.getSessionData(archiveOrHypercore, peerId)
 datSessionDataExtMsg.getLocalSessionData(archiveOrHypercore)
 datSessionDataExtMsg.setLocalSessionData(archiveOrHypercore, sessionData)
+datSessionDataExtMsg.sendLocalSessionData(archiveOrHypercore, peerId)
 ```
