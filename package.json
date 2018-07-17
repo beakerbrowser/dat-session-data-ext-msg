@@ -1,6 +1,6 @@
 {
   "name": "@beaker/dat-session-data-ext-msg",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Methods for implementing DEP-0006: Session Data (Extension Message)",
   "main": "index.js",
   "scripts": {
