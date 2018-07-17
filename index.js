@@ -37,7 +37,7 @@ class DatSessionDataExtMsg extends EventEmitter {
     if (watcher) {
       var peer = watcher.getPeer(remoteId)
       if (peer) {
-        return getPeerProtocolStream(peer).remoteSupports('session-data')
+        return remoteSupports(peer, 'session-data')
       }
     }
     return false
@@ -120,7 +120,7 @@ class DatWatcher {
     // send to peers
     var peers = this.hypercore.peers
     for (let i = 0; i < peers.length; i++) {
-      if (getPeerProtocolStream(peers[i]).remoteSupports('session-data')) {
+      if (remoteSupports(peers[i], 'session-data')) {
         getPeerFeedStream(peers[i]).extension('session-data', this.localSessionData)
       }
     }
@@ -128,7 +128,7 @@ class DatWatcher {
 
   sendLocalSessionData (remoteId) {
     var peer = this.getPeer(remoteId)
-    if (getPeerProtocolStream(peer).remoteSupports('session-data')) {
+    if (remoteSupports(peer, 'session-data')) {
       getPeerFeedStream(peer).extension('session-data', this.localSessionData)
     }
   }
@@ -196,6 +196,12 @@ function getPeerRemoteId (peer) {
   var protocolStream = getPeerProtocolStream(peer)
   if (!protocolStream) return null
   return protocolStream.remoteId
+}
+
+function remoteSupports (peer, ext) {
+  var protocolStream = getPeerProtocolStream(peer)
+  if (!protocolStream) return false
+  return protocolStream.remoteSupports(ext)
 }
 
 function toRemoteId (peer) {
